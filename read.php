@@ -66,10 +66,6 @@
                 </td>
               </tr>";
   }
-  
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -91,16 +87,13 @@
     <table border='1'>
         <thead>
             <th>Id</th>
-            <th>Voornaam</th>
-            <th>Tussenvoegsel</th>
-            <th>Achternaam</th>
-            <th>Haarkleur</th>
-            <th>Telefoonnummer</th>
-            <th>Straatnaam</th>
-            <th>Huisnummer</th>
-            <th>Woonplaats</th>
-            <th>Postcode</th>
-            <th>Landnaam</th>
+            <th>Achtbaan</th>
+            <th>Pretpark</th>
+            <th>Land</th>
+            <th>Topsnelheid</th>
+            <th>Hoogte</th>
+            <th>Opening</th>
+            <th>Cijfer</th>
         </thead>
         <tbody>
             <?= $rows; ?>
@@ -108,4 +101,3 @@
     </table>
 </body>
 </html>
-

@@ -23,13 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     try {
         $sql = "UPDATE achtbaan
-            SET    Naam achtbaan = :achtbaan, 
-                   Naam Pretpark = :pretpark, 
-                   Naam Land = :land,
+            SET    Achtbaan = :achtbaan, 
+                   Pretpark = :pretpark, 
+                   Land = :land,
                    Topsnelheid = :snelheid,
                    Hoogte = :hoogte,
-                   Datum eertse Opening = :datum,
-                   Cijfer voor de achtbaan = :cijfer,
+                   Opening = :datum,
+                   Cijfer = :cijfer,
             WHERE  Id = :id";
 
     $statement = $pdo->prepare($sql);
@@ -59,13 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 // Maak een sql-query voor de database
 $sql = "SELECT  Id
-                ,Naam achtbaan
-                ,Naam Pretpark
-                ,Naam Land
+                ,Achtbaan
+                ,Pretpark
+                ,Land
                 ,Topsnelheid
                 ,Hoogte
-                ,Datum eertse Opening
-                ,Cijfer voor de achtbaan)
+                ,Opening
+                ,Achtbaan)
         FROM achtbaan
         WHERE Id = :Id";
 
@@ -82,64 +82,48 @@ $statement->execute();
 $result = $statement->fetch(PDO::FETCH_OBJ);
 
 // var_dump($result);
-
-
-
-
-
 ?>
-<!-- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <title>PHP PDO CRUD</title>
+    <title>Snelste achtbaan</title>
 </head>
 <body>
-    <h1>PHP PDO CRUD</h1>
+    <h1>Achtbaan</h1>
     
     <form action="update.php" method="post">
 
-        <label for="firstname">Voornaam:</label><br>
-        <input type="text" name="firstname" id="firstname" value="<?= $result->Voornaam; ?>"><br>
+        <label for="coaster">Achtbaan:</label><br>
+        <input type="text" name="coaster" id="coaster" value="<?= $result->Voornaam; ?>"><br>
         <br>
-        <label for="infix">Tussenvoegsel:</label><br>
-        <input type="text" name="infix" id="infix" value="<?= $result->Tussenvoegsel; ?>"><br>
+        <label for="park">Pretpark:</label><br>
+        <input type="text" name="park" id="park" value="<?= $result->Tussenvoegsel; ?>"><br>
         <br>
-        <label for="lastname">Achternaam:</label><br>
-        <input type="text" name="lastname" id="lastname" value="<?= $result->Achternaam; ?>"><br>
+        <label for="country">Land:</label><br>
+        <input type="text" name="country" id="country" value="<?= $result->Achternaam; ?>"><br>
         <br>
-        <label for="haircolor">Haarkleur:</label><br>
-        <input type="text" name="haircolor" id="haircolor" value="<?= $result->Haarkleur; ?>"><br>
+        <label for="speed">Snelheid:</label><br>
+        <input type="text" name="speed" id="speed" value="<?= $result->Haarkleur; ?>"><br>
         <br>
-        <label for="phonenumber">Telefoonnummer:</label><br>
-        <input type="number" name="phonenumber" id="phonenumber" value="<?= $result->Haarkleur; ?>"><br>
+        <label for="height">Hoogte:</label><br>
+        <input type="number" name="height" id="height" value="<?= $result->Haarkleur; ?>"><br>
         <br>
-        <label for="streetname">Straatnaam:</label><br>
-        <input type="text" name="streetname" id="streetname" value="<?= $result->Haarkleur; ?>"><br>
+        <label for="date">Opening:</label><br>
+        <input type="text" name="date" id="date" value="<?= $result->Haarkleur; ?>"><br>
         <br>
-        <label for="housenumber">Huisnummer:</label><br>
-        <input type="number" name="housenumber" id="housenumber" value="<?= $result->Haarkleur; ?>"><br>
+        <label for="number">Cijfer:</label><br>
+        <input type="number" name="number" id="number" value="<?= $result->Haarkleur; ?>"><br>
         <br>
-        <label for="city">Woonplaats:</label><br>
-        <input type="text" name="city" id="city" value="<?= $result->Haarkleur; ?>"><br>
-        <br>
-        <label for="postalcode">Postcode:</label><br>
-        <input type="text" name="postalcode" id="postalcode" value="<?= $result->Haarkleur; ?>"><br>
-        <br>
-        <label for="country">Landnaam:</label><br>
-        <input type="text" name="country" id="country" value="<?= $result->Haarkleur; ?>"><br>
-        <br>
+        
         <input type="hidden" name="id" value="<?= $result->Id; ?>">
         <br>
-
 
         <input type="submit" value="Verstuur!">        
 
     </form>
 </body>
-</html> -->
+</html>
