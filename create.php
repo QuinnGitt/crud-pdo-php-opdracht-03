@@ -23,13 +23,13 @@ try {
  * We gaan een insert-query maken voor het wegschrijven van de formuliergegevens
  */
 $sql = "INSERT INTO achtbaan (Id
-                            ,Naam achtbaan
-                            ,Naam Pretpark
-                            ,Naam Land
+                            ,Achtbaan
+                            ,Pretpark
+                            ,Land
                             ,Topsnelheid
                             ,Hoogte
-                            ,Datum eertse Opening
-                            ,Cijfer voor de achtbaan)
+                            ,Opening
+                            ,Cijfer)
         VALUES              (NULL
                             ,:achtbaan
                             ,:pretpark

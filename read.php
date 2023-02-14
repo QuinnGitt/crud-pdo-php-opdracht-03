@@ -22,13 +22,13 @@
  * Maak een select query die alle records uit de tabel Persoon haalt
  */
   $sql = "SELECT (Id
-                ,Naam achtbaan
-                ,Naam Pretpark
-                ,Naam Land
+                ,Achtbaan
+                ,Pretpark
+                ,Land
                 ,Topsnelheid
                 ,Hoogte
-                ,Datum eertse Opening
-                ,Cijfer voor de achtbaan)
+                ,Opening
+                ,Cijfer)
           FROM achtbaan";
 
   // Maak de sql-query gereed om te worden uitgevoerd op de database
@@ -41,19 +41,19 @@
   $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
   // Even checken wat we terugkrijgen
-  // var_dump($result);
+  var_dump($result);
 
   $rows = "";
   foreach ($result as $info) {
     $rows .= "<tr>
                 <td>$info->Id</td>
-                <td>$info->Naamachtbaan</td>
-                <td>$info->NaamPretpark</td>
-                <td>$info->NaamLand</td>
+                <td>$info->Achtbaan</td>
+                <td>$info->Pretpark</td>
+                <td>$info->Land</td>
                 <td>$info->Topsnelheid</td>
                 <td>$info->Hoogte</td>
-                <td>$info->DatumOpening</td>
-                <td>$info->Cijferachtbaan</td>
+                <td>$info->Opening</td>
+                <td>$info->Cijfer</td>
 
                     <a href='delete.php?Id=$info->Id'>
                         <img src='img/b_drop.png' alt='kruis'>
@@ -71,7 +71,7 @@
 
 
 ?>
-<!-- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,5 +107,5 @@
         </tbody>
     </table>
 </body>
-</html> -->
+</html>
 
